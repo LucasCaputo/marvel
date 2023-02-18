@@ -1,0 +1,6 @@
+@import 'src/assets/variables.scss';
+
+.content {
+    background-color: $dark-snow-color;
+    height: calc(100vh - 64px);
+}

@@ -1,0 +1,37 @@
+@import 'src/assets/variables.scss';
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    height: 64px;
+
+    &-content {
+        display: flex;
+        align-items: center;
+        color: $dark-smoke-color;
+        font-size: 14px;
+        
+        &-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $snow-color;
+            border-radius: 4px;
+            width: 32px;
+            height: 32px;
+            font-size: 15px;
+            font-weight: bolder;
+            margin-left: 16px;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+      &-content-text {
+        display: grid;
+      }
+    }
+}
