@@ -3,9 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseApiURL: 'https://gateway.marvel.com/v1/public',
+  publicKey: '9da551ba4eb81c9ff98e10414d6c12e8',
+  secretKey: 'b04be7961606b89050afe1681ac13451f5477050',
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
