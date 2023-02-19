@@ -12,7 +12,7 @@ export class CharacterService {
 
   constructor(private http: HttpClient) { }
 
-  getCharacters(): Observable<CharactersResponse> {
-    return this.http.get<CharactersResponse>(this.baseURL+'/characters?limit=10&offset=0')
+  getCharacters(offset: number): Observable<CharactersResponse> {
+    return this.http.get<CharactersResponse>(this.baseURL+'/characters?limit=10&offset='+offset)
   }
 }

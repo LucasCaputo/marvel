@@ -16,11 +16,11 @@ export class AppComponent implements OnInit {
   constructor(private characterService: CharacterService) {}
 
   ngOnInit(): void {
-    this.getCharacters();
+    this.getCharacters(0);
   }
 
-  getCharacters(): void {
-    this.characterService.getCharacters().subscribe(characters=>{
+  getCharacters(offset: number): void {
+    this.characterService.getCharacters(offset).subscribe(characters=>{
       this.characters = characters;
     })
   }

@@ -14,6 +14,9 @@
   </div>
   <app-card [characters]="characters"></app-card>
   <div class="footer">
-    <app-paginator></app-paginator>
+    <app-paginator 
+      [activePage]="(characters?.data?.offset || 0)/10"
+      (pageChange)="getCharacters($event)"
+    ></app-paginator>
   </div>
 </div>
