@@ -2,5 +2,48 @@
 
 .content {
     background-color: $dark-snow-color;
-    height: calc(100vh - 64px);
+    height: calc(100vh - 144px);
+    padding: 40px 113px;
+
+    &-title {
+        font-size: 32px;
+        color: $dark-smoke-color;
+        font-weight: bold;
+        margin-bottom: 16px;
+        font-family: 'PT Sans Caption', sans-serif;
+    }
+
+    &-subtitle {
+        font-size: 16px;
+        color: $dark-smoke-color;
+        font-weight: bold;
+        margin-bottom: 8px;
+        font-family: 'PT Sans Caption', sans-serif;
+    }
+    
+    &-input {
+        margin-bottom: 40px;
+        border-color: transparent;
+        border: none;
+        outline: 0;
+        width: 295px;
+        height: 32px;
+
+        &::placeholder {
+            font-style: italic;
+        }
+    }
+
+    &-table-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        color: $smoke-color;
+        font-size: 12px;
+        margin: 0 24px 8px 24px;
+    }
+
+    .fa-magnifying-glass {
+        margin-left: -24px;
+        color: $smoke-color;
+    }
 }

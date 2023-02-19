@@ -1,0 +1,29 @@
+@import 'src/assets/variables.scss';
+
+.card {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 5px #00000033;
+    border-radius: 4px;
+    height: 88px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 24px;
+    align-items: center;
+    margin-bottom: 8px;
+
+    &-name {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        color: $dark-smoke-color;
+
+        img {
+            margin-right: 24px;
+        }
+    }
+
+    &-details {
+        font-size: 14px;
+        color: $dark-smoke-color;
+    }
+}
