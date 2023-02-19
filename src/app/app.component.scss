@@ -22,15 +22,17 @@
     }
     
     &-input {
-        margin-bottom: 40px;
-        border-color: transparent;
-        border: none;
-        outline: 0;
-        width: 295px;
-        height: 32px;
-
-        &::placeholder {
-            font-style: italic;
+        input {
+            margin-bottom: 40px;
+            border-color: transparent;
+            border: none;
+            outline: 0;
+            width: 295px;
+            height: 32px;
+    
+            &::placeholder {
+                font-style: italic;
+            }
         }
     }
 
@@ -45,5 +47,54 @@
     .fa-magnifying-glass {
         margin-left: -24px;
         color: $smoke-color;
+        height: 32px;
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 64px;
+        background: white;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .content {
+        padding: 24px;
+
+        &-title {
+            text-align: center;
+        }
+
+        &-subtitle {
+            text-align: center;
+        }
+
+        &-input {
+            display: flex;
+            justify-content: center;
+        }
+
+        .fa-magnifying-glass {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .content {
+        &-table-header {
+            margin-left: 97px;
+            span {
+                display: none;
+            
+                &:first-child {
+                    display: block;
+                }
+            }
+        }
     }
 }

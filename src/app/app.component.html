@@ -3,13 +3,17 @@
 <div class="content">
   <p class="content-title">Busca de personagens</p>
   <p class="content-subtitle">Nome do personagem</p>
-  <input class="content-input" type="text" placeholder="Search">
-  <i class="fa-solid fa-magnifying-glass"></i>
+  <div class="content-input">
+    <input type="text" placeholder="Search">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
   <div class="content-table-header">
     <span>Personagem</span>
     <span>Séries</span>
     <span>Eventos</span>
   </div>
   <app-card></app-card>
-  <app-paginator></app-paginator>
+  <div class="footer">
+    <app-paginator></app-paginator>
+  </div>
 </div>
