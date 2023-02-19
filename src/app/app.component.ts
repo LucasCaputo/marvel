@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { CharactersResponse } from './shared/interfaces/character.interface';
 
-import { environment } from 'src/environments/environment';
+import { CharacterService } from './shared/services/character.service';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +9,19 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  baseURL = environment.baseApiURL;
+  
   title = 'marvel';
+  characters: CharactersResponse | undefined;
 
-  constructor(private http: HttpClient) {}
+  constructor(private characterService: CharacterService) {}
 
   ngOnInit(): void {
-    this.http.get(this.baseURL+'/characters').subscribe((el)=>{
-      console.log(el);
+    this.getCharacters();
+  }
+
+  getCharacters(): void {
+    this.characterService.getCharacters().subscribe(characters=>{
+      this.characters = characters;
     })
   }
 }

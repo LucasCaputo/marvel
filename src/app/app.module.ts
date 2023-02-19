@@ -5,8 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AuthorizationInterceptor } from 'src/app/shared/interceptors/authorization-interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/components/header/header.component';
 import { CardComponent } from './shared/components/card/card.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 import { PaginatorComponent } from './shared/components/paginator/paginator.component';
 
 @NgModule({

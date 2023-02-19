@@ -2,8 +2,8 @@
 
 .content {
     background-color: $dark-snow-color;
-    height: calc(100vh - 144px);
-    padding: 40px 113px;
+    min-height: calc(100vh - 220px);
+    padding: 40px 113px 113px;
 
     &-title {
         font-size: 32px;
@@ -51,7 +51,7 @@
     }
 
     .footer {
-        position: absolute;
+        position: fixed;
         bottom: 0;
         right: 0;
         height: 64px;

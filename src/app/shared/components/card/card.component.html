@@ -1,17 +1,18 @@
-<div class="card">
+<div *ngFor="let character of characters?.data?.results" class="card">
     <div class="card-name">
-        <img width="48" height="48" src="http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784/portrait_incredible.jpg" alt="avatar">
-        <strong>Abner Jenkins</strong>
+        <img 
+            width="48" 
+            height="48" 
+            [src]="character?.thumbnail?.path + '/portrait_incredible.' + character?.thumbnail?.extension"
+            alt="avatar"
+        >
+        <strong>{{ character.name }}</strong>
     </div>
     <div class="card-details">
-        <p>Iron Man: Armor Wars</p>
-        <p>Old Man Hawkeye</p>
-        <p>Fantastic Four Visionaries: Walter Simonson Vol. 1</p>
+        <p *ngFor="let serie of character?.series?.items | slice: 0:3" >{{ serie.name }}</p>
     </div>
 
     <div class="card-details">
-        <p>AvX</p>
-        <p>Demon in the Bottle</p>
-        <p>Dynasty M</p>
+        <p *ngFor="let event of character?.stories?.items | slice: 0:3" >{{ event.name }}</p>
     </div>
 </div>
