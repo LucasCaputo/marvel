@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 import { CharactersResponse } from './shared/interfaces/character.interface';
 
 import { CharacterService } from './shared/services/character.service';
@@ -10,17 +11,25 @@ import { CharacterService } from './shared/services/character.service';
 })
 export class AppComponent implements OnInit {
   
-  title = 'marvel';
+  search ='';
+  searchUpdate = new Subject<string>();
   characters: CharactersResponse | undefined;
 
-  constructor(private characterService: CharacterService) {}
+  constructor(private characterService: CharacterService) { }
 
   ngOnInit(): void {
-    this.getCharacters(0);
+    this.searchUpdate.pipe(
+      debounceTime(400),
+      distinctUntilChanged())
+      .subscribe(value => {
+        this.getCharacters(0, value);
+      });
+
+      this.searchUpdate.next(this.search)
   }
 
-  getCharacters(offset: number): void {
-    this.characterService.getCharacters(offset).subscribe(characters=>{
+  getCharacters(offset: number, name: string): void {
+    this.characterService.getCharacters(offset, name).subscribe(characters=>{
       this.characters = characters;
     })
   }
