@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { CardComponent } from './shared/components/card/card.component';
+import { PaginatorComponent } from './shared/components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CardComponent
+    CardComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,

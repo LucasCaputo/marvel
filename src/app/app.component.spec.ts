@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { CardComponent } from './shared/components/card/card.component';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { PaginatorComponent } from './shared/components/paginator/paginator.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -16,7 +17,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         HeaderComponent,
-        CardComponent
+        CardComponent,
+        PaginatorComponent
       ],
     }).compileComponents();
   });
@@ -37,6 +39,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Busca de personagens');
+    expect(compiled.querySelector('.content-title')?.textContent).toContain('Busca de personagens');
   });
 });

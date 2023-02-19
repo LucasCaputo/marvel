@@ -1,0 +1,13 @@
+.paginator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-chevrons {
+        margin: 0 16px;
+    }
+
+    &-numbers {
+        margin: 0 16px;
+    }
+}
