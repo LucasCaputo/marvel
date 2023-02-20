@@ -14,9 +14,12 @@ describe('PaginatorComponent', () => {
 
     fixture = TestBed.createComponent(PaginatorComponent);
     component = fixture.componentInstance;
+    component.length = 100;
+    component.pageIndex = 1;
+    component.pageSize = 10
     fixture.detectChanges();
   });
-
+  
   it('should create', () => {
     expect(component).toBeTruthy();
   });

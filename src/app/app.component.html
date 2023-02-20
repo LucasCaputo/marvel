@@ -17,10 +17,12 @@
     <span>Eventos</span>
   </div>
   <app-card [characters]="characters"></app-card>
-  <div *ngIf="!search.length" class="footer">
-    <app-paginator 
-      [activePage]="(characters?.data?.offset || 0)/10"
-      (pageChange)="getCharacters($event, search)"
+  <div *ngIf="characters" class="footer">
+    <app-paginator
+      [pageIndex]="(characters.data.offset)/10" 
+      [pageSize]="characters.data.limit" 
+      [length]="characters.data.total" 
+      (page)="changePage($event)"
     ></app-paginator>
   </div>
 </div>

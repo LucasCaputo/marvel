@@ -1,42 +1,41 @@
 <div class="paginator">
     <div 
-        *ngIf="activePage >= 2" 
-        class="paginator-chevrons-left"
-        (click)="change(0)"
+      *ngIf="pageIndex >= 2" 
+      class="paginator-chevrons-left"
+      (click)="setPage(0)"
     >
-            <i class="fa-solid fa-chevron-left"></i>
-            <i class="fa-solid fa-chevron-left"></i>
+      <i class="fa-solid fa-chevron-left"></i>
+      <i class="fa-solid fa-chevron-left"></i>
     </div>
 
     <i 
-        *ngIf="activePage >= 1" 
-        class="fa-solid fa-chevron-left"
-        (click)="change((activePage -1)*10)"
+      *ngIf="pageIndex >= 1" 
+      class="fa-solid fa-chevron-left" 
+      (click)="setPage(pageIndex - 1)"
     ></i>
 
-    <div class="paginator-numbers">
-        <p 
-            *ngFor="let page of [1,2,3,4,5]" 
-            [class]="activePage+1 === page ? 'paginator-numbers-enabled' :'paginator-numbers-disabled'"
-            (click)="change((page * 10)-10)"
-        >
-            {{ page }}
-        </p>
-    </div>
-
+    <button 
+      class="paginator-numbers" 
+      *ngFor="let page of pages" 
+      [class.active]="pageIndex === page" 
+      (click)="setPage(page)"
+    >
+      {{ page + 1 }}
+    </button>
+      
     <i
-        *ngIf="!(activePage >= 4)" 
-        class="fa-solid fa-chevron-right"
-        (click)="change((activePage +1)*10)"
+      *ngIf="!(pageIndex === totalPages - 1)" 
+      class="fa-solid fa-chevron-right"
+      (click)="setPage(pageIndex + 1)"
     ></i>
 
     <div 
-        *ngIf="!(activePage >= 3)" 
-        class="paginator-chevrons-right"
-        (click)="change(40)"
+      *ngIf="!(pageIndex >= totalPages - 2)"
+      class="paginator-chevrons-right"
+      (click)="setPage(totalPages -1)"
     >
-        <i class="fa-solid fa-chevron-right"></i>
-        <i class="fa-solid fa-chevron-right"></i>
-    </div>
+      <i class="fa-solid fa-chevron-right"></i>
+      <i class="fa-solid fa-chevron-right"></i>
+  </div>
 </div>
 

@@ -8,10 +8,10 @@
     color: $smoke-color;
 
     &-chevrons-left {
-        margin: 0 16px;
-        i {
-            margin-right: -4px;
-        }
+      margin: 0 16px;
+      i {
+          margin-right: -4px;
+      }
     }
 
     &-chevrons-right {
@@ -28,40 +28,26 @@
     .fa-chevron-left {
         cursor: pointer;
     }
-
+    
     &-numbers {
-        display: flex;
-        margin: 0 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      font-weight: bold;
+      color: $dark-smoke-color;
+      background-color: $snow-color;
+      border: 1px $dark-snow-color solid;
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+      margin: 0 4px;
+      cursor: pointer;
 
-        &-disabled {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 14px;
-            font-weight: bold;
-            color: $dark-smoke-color;
-            background-color: $snow-color;
-            border: 1px $dark-snow-color solid;
-            width: 32px;
-            height: 32px;
-            border-radius: 4px;
-            margin: 0 4px;
-            cursor: pointer;
-        }
-
-        &-enabled {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 14px;
-            font-weight: bold;
-            color: white;
-            background-color: $dark-blue-color;
-            width: 32px;
-            height: 32px;
-            border-radius: 4px;
-            margin: 0 4px;
-            cursor: pointer;
-        }
+      &:hover, &.active {
+        background-color: $dark-blue-color;
+        border-color: $dark-blue-color;
+        color: white;
+      }
     }
-}
+  }

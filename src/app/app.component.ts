@@ -28,6 +28,10 @@ export class AppComponent implements OnInit {
       this.searchUpdate.next(this.search)
   }
 
+  changePage(page: number){
+    this.getCharacters(page * 10, this.search)
+  }
+
   getCharacters(offset: number, name: string): void {
     this.characterService.getCharacters(offset, name).subscribe(characters=>{
       this.characters = characters;
