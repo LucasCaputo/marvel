@@ -2,6 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.10.
 
+Mavel project is online here: [marvvel.netlify.app](https://marvvel.netlify.app/)
+
+## Screenshots
+
+Home
+![Home](src/assets/images/home.png)
+
+Search hero
+![Search](src/assets/images/search.png)
+
+Pagination 
+![Pagination](src/assets/images/pagination.png)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
