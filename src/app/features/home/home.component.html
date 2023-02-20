@@ -1,0 +1,26 @@
+<div class="content">
+  <p class="content-title">Busca de personagens</p>
+  <p class="content-subtitle">Nome do personagem</p>
+  <div class="content-input">
+    <input 
+      [(ngModel)]="search" 
+      (ngModelChange)="this.searchUpdate.next($event)" 
+      type="text" 
+      placeholder="Search">
+    <i class="fa-solid fa-magnifying-glass"></i>  
+  </div>
+  <div class="content-table-header">
+    <span>Personagem</span>
+    <span>Séries</span>
+    <span>Eventos</span>
+  </div>
+  <app-card [characters]="characters"></app-card>
+  <div *ngIf="characters" class="footer">
+    <app-paginator
+      [pageIndex]="(characters.data.offset)/10" 
+      [pageSize]="characters.data.limit" 
+      [length]="characters.data.total" 
+      (page)="changePage($event)"
+    ></app-paginator>
+  </div>
+</div>
