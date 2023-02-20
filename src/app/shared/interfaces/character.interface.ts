@@ -11,6 +11,7 @@ interface Data {
 }
 
 interface Results {
+    id: number,
     name: string;
     series: Series;
     stories: Stories;

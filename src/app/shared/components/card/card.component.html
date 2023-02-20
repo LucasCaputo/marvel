@@ -1,5 +1,5 @@
 <div *ngFor="let character of characters?.data?.results" class="card">
-    <div class="card-name">
+    <div class="card-name" [routerLink]="['/details/',character?.id]">
         <img 
             width="48" 
             height="48" 

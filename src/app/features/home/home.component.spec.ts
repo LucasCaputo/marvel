@@ -19,7 +19,7 @@ describe('HomeComponent', () => {
       ],
       imports: [
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
       ]
     })
     .compileComponents();
