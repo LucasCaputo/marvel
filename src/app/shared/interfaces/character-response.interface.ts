@@ -1,8 +1,8 @@
-export interface CharacterResponse {
-    data: Data;
+export interface CharacterResponseData {
+    data: CharacterResponse;
 }
 
-interface Data {
+export interface CharacterResponse {
     count: number;
     limit: number;
     offset: number;

@@ -1,9 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CharacterRequest } from '../interfaces/character-request.interface';
-import { CharacterResponse } from '../interfaces/character-response.interface';
+import { CharacterResponse, CharacterResponseData } from '../interfaces/character-response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,10 @@ export class CharacterService {
       }
     }
 
-    return this.http.get<CharacterResponse>(this.baseURL+'/characters', { params: httpParams });
+    return this.http.get<CharacterResponseData>(this.baseURL+'/characters', { params: httpParams })
+      .pipe(
+        map((res: CharacterResponseData )=>res.data)
+      )
 
   }
 }
