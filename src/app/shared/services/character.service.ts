@@ -2,7 +2,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { CharactersResponse } from '../interfaces/character.interface';
+import { CharacterRequest } from '../interfaces/character-request.interface';
+import { CharacterResponse } from '../interfaces/character-response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +12,17 @@ export class CharacterService {
   baseURL = environment.baseApiURL;
 
   constructor(private http: HttpClient) {}
+  
+  getCharacter(params: CharacterRequest = {}): Observable<CharacterResponse> {
+    let httpParams = new HttpParams();
 
-  getCharacters(offset: number, name?: string): Observable<CharactersResponse> {
+    for (const [key, value] of Object.entries(params)) {
+      if (value) {
+        httpParams = httpParams.set(key, value instanceof Date ? value.toISOString() : value.toString());
+      }
+    }
 
-    let params = new HttpParams()
-      .set('limit', 10)
-      .set('offset', offset);
-    
-    if(name?.length) params = params.set('nameStartsWith', name);
-    
-    return this.http.get<CharactersResponse>(this.baseURL+'/characters', {params});
+    return this.http.get<CharacterResponse>(this.baseURL+'/characters', { params: httpParams });
+
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
-import { CharactersResponse } from 'src/app/shared/interfaces/character.interface';
+import { CharacterResponse } from 'src/app/shared/interfaces/character-response.interface';
 import { CharacterService } from 'src/app/shared/services/character.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   search ='';
   searchUpdate = new Subject<string>();
-  characters: CharactersResponse | undefined;
+  characters: CharacterResponse | undefined;
 
   constructor(private characterService: CharacterService) { }
 
@@ -31,8 +31,8 @@ export class HomeComponent implements OnInit {
     this.getCharacters(page * 10, this.search)
   }
 
-  getCharacters(offset: number, name: string): void {
-    this.characterService.getCharacters(offset, name).subscribe(characters=>{
+  getCharacters(offset: number, nameStartsWith: string, limit: number = 10): void {
+    this.characterService.getCharacter({offset, nameStartsWith, limit}).subscribe(characters=>{
       this.characters = characters;
     })
   }

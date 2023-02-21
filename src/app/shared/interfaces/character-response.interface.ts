@@ -1,4 +1,4 @@
-export interface CharactersResponse {
+export interface CharacterResponse {
     data: Data;
 }
 
