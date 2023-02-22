@@ -27,7 +27,14 @@ const routes: Routes = [
           import('./features/details/details.module').then(
             (m) => m.DetailsModule
           ),
-      },
+          data: {
+            breadcrumbs: [
+              {
+                label: 'Detalhes',
+              }
+            ] 
+          },
+      }
     ],
   },
 ];

@@ -1,0 +1,35 @@
+@import 'src/assets/variables.scss';
+
+ol.breadcrumb {
+    background-color: $snow-color;
+    border-radius: 4px;
+    padding: 8px 15px;
+    margin-bottom: 0;
+  
+    li {
+      display: inline-block;
+  
+      & + li:before {
+        content: "›";
+        padding: 0 10px;
+      }
+  
+      &:last-child {
+        color: $dark-smoke-color;
+      }
+  
+      a {
+        color: $dark-blue-color;
+        text-decoration: none;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+  
+      &.active {
+        color: $dark-smoke-color;
+      }
+    }
+  }
+  

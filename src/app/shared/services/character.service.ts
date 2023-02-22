@@ -28,4 +28,11 @@ export class CharacterService {
       )
 
   }
+
+  getCharacterById(id: number): Observable<CharacterResponse> {
+    return this.http.get<CharacterResponseData>(this.baseURL+'/characters/'+id)
+      .pipe(
+        map((res: CharacterResponseData )=>res.data)
+      )
+  }
 }
