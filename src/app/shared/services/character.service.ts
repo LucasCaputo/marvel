@@ -29,10 +29,15 @@ export class CharacterService {
 
   }
 
-  getCharacterById(id: number): Observable<CharacterResponse> {
-    return this.http.get<CharacterResponseData>(this.baseURL+'/characters/'+id)
+  getCharacterDetailsById(id: number, path: string): Observable<CharacterResponse> {
+    return this.http.get<CharacterResponseData>(`${this.baseURL}/characters/${id}/${path}`)
       .pipe(
-        map((res: CharacterResponseData )=>res.data)
-      )
+        map((res: CharacterResponseData) => {
+          return {
+            ...res.data,
+            path,
+          };
+        })
+      );
   }
 }

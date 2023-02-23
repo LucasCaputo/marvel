@@ -17,7 +17,7 @@ export class DetailsComponent implements OnInit  {
   ){}  
 
   ngOnInit(): void {
-    this.characterService.getCharacterById(this.activatedRoute.snapshot.params['id']).subscribe(
+    this.characterService.getCharacterDetailsById(this.activatedRoute.snapshot.params['id'], 'comics').subscribe(
       (character) => this.character = character);
   }
 }

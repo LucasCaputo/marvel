@@ -1,22 +1,23 @@
 <div 
     *ngFor="let character of characters?.results"
-    [routerLink]="['/details/',character?.id]"
+    [routerLink]="!characters?.path ? ['/details/',character?.id] : null"
     class="card"
 >
     <div class="card-name">
         <img 
-            width="48" 
-            height="48" 
             [src]="character?.thumbnail?.path + '/portrait_incredible.' + character?.thumbnail?.extension"
             alt="avatar"
         >
-        <strong>{{ character.name }}</strong>
-    </div>
-    <div class="card-details">
-        <p *ngFor="let serie of character?.series?.items | slice: 0:3" >{{ serie.name }}</p>
+        <strong>{{ character.name || character.title }}</strong>
     </div>
 
-    <div class="card-details">
-        <p *ngFor="let event of character?.stories?.items | slice: 0:3" >{{ event.name }}</p>
-    </div>
+    <ng-container *ngIf="!characters?.path">
+        <div class="card-details">
+            <p *ngFor="let serie of character?.series?.items | slice: 0:3" >{{ serie.name }}</p>
+        </div>
+    
+        <div class="card-details">
+            <p *ngFor="let event of character?.stories?.items | slice: 0:3" >{{ event.name }}</p>
+        </div>
+    </ng-container>
 </div>

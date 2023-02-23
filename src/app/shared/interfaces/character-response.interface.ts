@@ -8,11 +8,13 @@ export interface CharacterResponse {
     offset: number;
     results: Results[];
     total: number;
+    path: string;
 }
 
 interface Results {
     id: number,
     name: string;
+    title: string;
     series: Series;
     stories: Stories;
     thumbnail: Thumbnail;
